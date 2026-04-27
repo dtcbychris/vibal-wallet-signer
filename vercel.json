@@ -1,4 +1,5 @@
 {
+  "outputDirectory": ".",
   "functions": {
     "api/wallet/sign.ts": {
       "maxDuration": 30
