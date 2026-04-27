@@ -1,0 +1,20 @@
+{
+  "name": "vibal-wallet-signer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "External Apple Wallet .pkpass signing service for Vibal. Receives unsigned passJson from Supabase edge functions and returns a signed .pkpass.",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "tsc --noEmit"
+  },
+  "dependencies": {
+    "passkit-generator": "3.3.1"
+  },
+  "devDependencies": {
+    "@vercel/node": "3.2.24",
+    "typescript": "5.5.4"
+  }
+}
