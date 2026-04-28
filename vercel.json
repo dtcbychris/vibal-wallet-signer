@@ -1,11 +1,9 @@
 {
-  "outputDirectory": ".",
   "functions": {
     "api/wallet/sign.ts": {
-      "maxDuration": 30
-    },
-    "api/wallet/health.ts": {
-      "maxDuration": 10
+      "memory": 512,
+      "maxDuration": 15,
+      "includeFiles": "assets/**"
     }
   }
 }
