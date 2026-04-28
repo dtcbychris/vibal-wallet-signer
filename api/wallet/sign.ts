@@ -45,10 +45,10 @@ function buildManifest(files: Record<string, Buffer>): Buffer {
 
 // ---- PKCS#7 detached signature over manifest.json ----
 function signManifest(manifestBuf: Buffer): Buffer {
-  const signerCertPem = process.env.APPLE_PASS_SIGNER_CERT_PEM!;
-  const signerKeyPem = process.env.APPLE_PASS_SIGNER_KEY_PEM!;
-  const signerKeyPassphrase = process.env.APPLE_PASS_SIGNER_KEY_PASSPHRASE ?? "";
-  const wwdrPem = process.env.APPLE_WWDR_CERT_PEM!;
+  const signerCertPem = process.env.APPLE_PASS_CERTIFICATE!;
+  const signerKeyPem = process.env.APPLE_PASS_PRIVATE_KEY!;
+  const signerKeyPassphrase = process.env.APPLE_PASS_PRIVATE_KEY_PASSPHRASE ?? "";
+  const wwdrPem = process.env.APPLE_WWDR_CERTIFICATE!;
 
   const cert = forge.pki.certificateFromPem(signerCertPem);
   const key = signerKeyPassphrase
