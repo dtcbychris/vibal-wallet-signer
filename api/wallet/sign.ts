@@ -90,7 +90,7 @@ function signManifest(manifestBuffer: Buffer): Buffer {
   }
 
   const p7 = forge.pkcs7.createSignedData();
-  p7.content = forge.util.createBuffer(manifestBuffer.toString("binary"), "binary");
+  p7.content = forge.util.createBuffer(manifestBuffer.toString("latin1"));
   p7.addCertificate(cert);
   p7.addCertificate(wwdr);
   p7.addSigner({
@@ -107,7 +107,7 @@ function signManifest(manifestBuffer: Buffer): Buffer {
       },
       {
         type: forge.pki.oids.signingTime,
-        value: new Date(),
+        value: new Date().toISOString(),
       },
     ],
   });
@@ -115,7 +115,7 @@ function signManifest(manifestBuffer: Buffer): Buffer {
   p7.sign({ detached: true });
 
   const der = forge.asn1.toDer(p7.toAsn1()).getBytes();
-  return Buffer.from(der, "binary");
+  return Buffer.from(der, "latin1");
 }
 
 async function zipFiles(files: Record<string, Buffer>): Promise<Buffer> {
