@@ -7,7 +7,6 @@ import JSZip from "jszip";
 import { buildLogoAssets } from "../../lib/walletLogo";
 
 export const config = {
-  runtime: "nodejs20.x",
   maxDuration: 15,
 };
 
